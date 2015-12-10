@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  sudo: true
+  tasks:
+   - name: apt update
+     apt: update_cache=yes
+   - name: install node
+     apt: name=nodejs state=present
+   - name: install npm
+     apt: name=npm state=present
+   - name: install mongo
+     apt: name=mongodb state=present
+   - name: install express
+     npm: name=express-generator global=yes
+   - name: install mongo npm
+     npm: name=mongodb global=yes
